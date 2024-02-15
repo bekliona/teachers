@@ -16,7 +16,7 @@ function initializeFormFields(data) {
 
     // Функция для заполнения областей
     const fillRegions = () => {
-        let regions = [...new Set(data.map(item => item.region))];
+        let regions = [...new Set(data.map(item => item["Область"]))]; // Изменено с item.region на item["Область"]
         regions.forEach(region => {
             const option = document.createElement('option');
             option.value = region;
@@ -28,7 +28,7 @@ function initializeFormFields(data) {
     // Обновление районов
     const updateDistricts = (selectedRegion) => {
         districtSelect.innerHTML = '<option value="">Выберите район</option>';
-        let districts = data.filter(item => item.region === selectedRegion).map(item => item.district);
+        let districts = data.filter(item => item["Область"] === selectedRegion).map(item => item["Район"]); // Изменения с item.region и item.district
         [...new Set(districts)].forEach(district => {
             const option = document.createElement('option');
             option.value = district;
@@ -40,7 +40,7 @@ function initializeFormFields(data) {
     // Обновление населенных пунктов
     const updateSettlements = (selectedDistrict) => {
         settlementSelect.innerHTML = '<option value="">Выберите населенный пункт</option>';
-        let settlements = data.filter(item => item.district === selectedDistrict).map(item => item.settlement);
+        let settlements = data.filter(item => item["Район"] === selectedDistrict).map(item => item["Населенный пункт"]); // Изменения с item.district и item.settlement
         [...new Set(settlements)].forEach(settlement => {
             const option = document.createElement('option');
             option.value = settlement;
@@ -52,7 +52,7 @@ function initializeFormFields(data) {
     // Обновление школ
     const updateSchools = (selectedSettlement) => {
         schoolSelect.innerHTML = '<option value="">Выберите школу</option>';
-        let schools = data.filter(item => item.settlement === selectedSettlement).map(item => item.school);
+        let schools = data.filter(item => item["Населенный пункт"] === selectedSettlement).map(item => item["Школа"]); // Изменения с item.settlement и item.school
         [...new Set(schools)].forEach(school => {
             const option = document.createElement('option');
             option.value = school;
