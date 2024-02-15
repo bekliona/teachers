@@ -7,6 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Ошибка загрузки данных:', error));
 
+    // Ваша конфигурация Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyBOB1SxuGVnHbcj310RfIYgINd3t4VQbUA",
+        authDomain: "teachers-form.firebaseapp.com",
+        databaseURL: "https://teachers-form-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "teachers-form",
+        storageBucket: "teachers-form.appspot.com",
+        messagingSenderId: "978938759652",
+        appId: "1:978938759652:web:c10776681dd3a0e10c1ff1"
+    };
+    
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database(app);
+
     // Обработчик отправки формы
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault(); // Предотвращаем стандартную отправку формы
@@ -16,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             region: document.getElementById('regionSelect').value,
             district: document.getElementById('districtSelect').value,
             settlement: document.getElementById('settlementSelect').value,
-            school: document.getElementById('schoolSelect').value,
+            school: document.getElementById('schoolSelect').value
             // Добавьте сюда другие поля формы, если они есть
         };
 
@@ -24,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         firebase.database().ref('submissions').push(formData)
             .then(() => {
                 alert('Данные успешно отправлены в Firebase!');
-                // Здесь можете сбросить форму или выполнить другие действия после отправки
+                // Очищаем форму или выполняем другие действия после отправки
             })
             .catch(error => {
                 console.error('Ошибка отправки данных в Firebase:', error);
@@ -32,6 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 });
+
+function initializeFormFields(data) {
+    // Функция для инициализации полей формы
+    // Ваш код для инициализации полей
+}
 
 function initializeFormFields(data) {
     const regionSelect = document.getElementById('regionSelect');
