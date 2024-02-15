@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<form id="surveyForm">
+<form action="https://formspree.io/f/mayrojlk" method="post">
     <!-- Вопросы 1-6 -->
     <label for="lastName">Фамилия:</label>
     <input type="text" id="lastName" name="lastName"><br>
@@ -31,12 +31,11 @@
     
     <label for="subject">Білім беру пәніңіз:</label>
     <select id="subject" name="subject">
-        <option value="математика">жаратылыстану</option>
+        <option value="жаратылыстану">жаратылыстану</option>
         <option value="математика">математика</option>
-        <option value="математика">ағылшын тілі</option>
-        <option value="математика">қазақ тілі (қазақ тілді мектептер үшін)</option>
-        <option value="математика">орыс тілі (орыс тілді мектептер үшін)</option>
-        <!-- Добавьте другие предметы -->
+        <option value="ағылшын тілі">ағылшын тілі</option>
+        <option value="қазақ тілі">қазақ тілі (қазақ тілді мектептер үшін)</option>
+        <option value="орыс тілі">орыс тілі (орыс тілді мектептер үшін)</option>
     </select><br>
     
     <label for="languageOfEducation">Білім беру тілі:</label>
@@ -47,27 +46,31 @@
     
     <!-- Вопросы 7-9 (Область, Район, Населенный пункт, Школа) -->
     <div>
-        <label for="regionSelect">Область:</label>
-        <select id="regionSelect">
+        <label for="region">Область:</label>
+        <select id="region" name="region">
             <option value="">Выберите область</option>
+            <!-- Заполните с вашими данными -->
         </select>
     </div>
     <div>
-        <label for="districtSelect">Район:</label>
-        <select id="districtSelect">
+        <label for="district">Район:</label>
+        <select id="district" name="district">
             <option value="">Выберите район</option>
+            <!-- Заполните с вашими данными -->
         </select>
     </div>
     <div>
-        <label for="settlementSelect">Населенный пункт:</label>
-        <select id="settlementSelect">
+        <label for="settlement">Населенный пункт:</label>
+        <select id="settlement" name="settlement">
             <option value="">Выберите населенный пункт</option>
+            <!-- Заполните с вашими данными -->
         </select>
     </div>
     <div>
-        <label for="schoolSelect">Школа:</label>
-        <select id="schoolSelect">
+        <label for="school">Школа:</label>
+        <select id="school" name="school">
             <option value="">Выберите школу</option>
+            <!-- Заполните с вашими данными -->
         </select>
     </div>
     
