@@ -1,52 +1,42 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+// Конфигурация Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBOB1SxuGVnHbcj310RfIYgINd3t4VQbUA",
+  authDomain: "teachers-form.firebaseapp.com",
+  databaseURL: "https://teachers-form-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "teachers-form",
+  storageBucket: "teachers-form.appspot.com",
+  messagingSenderId: "978938759652",
+  appId: "1:978938759652:web:c10776681dd3a0e10c1ff1"
+};
+
+// Инициализация Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация формы из данных
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            initializeFormFields(data);
-        })
-        .catch(error => console.error('Ошибка загрузки данных:', error));
-
-    // Ваша конфигурация Firebase
-    const firebaseConfig = {
-        apiKey: "AIzaSyBOB1SxuGVnHbcj310RfIYgINd3t4VQbUA",
-        authDomain: "teachers-form.firebaseapp.com",
-        databaseURL: "https://teachers-form-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "teachers-form",
-        storageBucket: "teachers-form.appspot.com",
-        messagingSenderId: "978938759652",
-        appId: "1:978938759652:web:c10776681dd3a0e10c1ff1"
-    };
-    
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const database = firebase.database(app);
-
-    // Обработчик отправки формы
+    // Инициализация и работа с формой
+    // ...
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault(); // Предотвращаем стандартную отправку формы
 
         // Собираем данные формы
         const formData = {
-            region: document.getElementById('regionSelect').value,
-            district: document.getElementById('districtSelect').value,
-            settlement: document.getElementById('settlementSelect').value,
-            school: document.getElementById('schoolSelect').value
-            // Добавьте сюда другие поля формы, если они есть
+            // Ваши данные формы
         };
 
-        // Отправляем данные в Firebase
-        firebase.database().ref('submissions').push(formData)
+        // Отправка данных в Firebase
+        push(ref(database, 'submissions'), formData)
             .then(() => {
                 alert('Данные успешно отправлены в Firebase!');
-                // Очищаем форму или выполняем другие действия после отправки
             })
             .catch(error => {
                 console.error('Ошибка отправки данных в Firebase:', error);
                 alert('Ошибка при отправке данных: ' + error.message);
             });
     });
-});
 
 function initializeFormFields(data) {
     // Функция для инициализации полей формы
