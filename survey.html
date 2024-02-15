@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета для учителей</title>
+    <style>
+        /* Простые стили для наглядности */
+        select, input[type=text] {
+            width: 200px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        input[type=submit] {
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<form id="surveyForm">
+    <!-- Вопросы 1-6 -->
+    <label for="lastName">Фамилия:</label>
+    <input type="text" id="lastName" name="lastName"><br>
+    
+    <label for="firstName">Имя:</label>
+    <input type="text" id="firstName" name="firstName"><br>
+    
+    <label for="personalID">ЖСН (ИИН):</label>
+    <input type="text" id="personalID" name="personalID"><br>
+    
+    <label for="subject">Білім беру пәніңіз:</label>
+    <select id="subject" name="subject">
+        <option value="математика">математика</option>
+        <!-- Добавьте другие предметы -->
+    </select><br>
+    
+    <label for="languageOfEducation">Білім беру тілі:</label>
+    <select id="languageOfEducation" name="languageOfEducation">
+        <option value="қазақ тілі">қазақ тілі</option>
+        <option value="орыс тілі">орыс тілі</option>
+    </select><br>
+    
+    <!-- Вопросы 7-9 (Область, Район, Населенный пункт, Школа) -->
+    <div>
+        <label for="regionSelect">Область:</label>
+        <select id="regionSelect">
+            <option value="">Выберите область</option>
+        </select>
+    </div>
+    <div>
+        <label for="districtSelect">Район:</label>
+        <select id="districtSelect">
+            <option value="">Выберите район</option>
+        </select>
+    </div>
+    <div>
+        <label for="settlementSelect">Населенный пункт:</label>
+        <select id="settlementSelect">
+            <option value="">Выберите населенный пункт</option>
+        </select>
+    </div>
+    <div>
+        <label for="schoolSelect">Школа:</label>
+        <select id="schoolSelect">
+            <option value="">Выберите школу</option>
+        </select>
+    </div>
+    
+    <input type="submit" value="Отправить">
+</form>
+
+<script src="C:/Users/Beklion A/Documents/GitHub/script.js"></script>
+
+</body>
+</html>
